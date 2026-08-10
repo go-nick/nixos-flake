@@ -8,5 +8,9 @@
       system = "x86_64-linux";
       modules = [ ./hosts/beelink-master/configuration.nix ];
     };
+    nixosConfigurations.old-white-worker = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./hosts/old-white-worker/configuration.nix ];
+    };
   };
 }
