@@ -22,31 +22,21 @@
     prefixLength = 24;
   }];
 
-#   fileSystems."/data" = {
-#     device = "/dev/disk/by-uuid/8bbee8f0-69c6-46db-88b5-dd87777972ce";
-#     fsType = "xfs";
-#   };
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/8bbee8f0-69c6-46db-88b5-dd87777972ce";
+    fsType = "xfs";
+  };
 
   # sudo chown -R nick:nick /data
 
-  # KUBERNETES
-#   services.k3s = {
-#     enable = true;
-#     role = "server";
-#     extraFlags = "--disable=helm-controller --write-kubeconfig=/home/nick/.kube/config --write-kubeconfig-mode=600";
-#   };
-#   systemd.tmpfiles.rules = [
-#     "d /home/nick/.kube 0700 nick users -"
-#   ];
-#   systemd.services.k3s.serviceConfig.ExecStartPost = [
-#     "+${pkgs.writeShellScript "fix-kubeconfig-owner" ''
-#       for i in $(seq 1 30); do
-#         [ -f /home/nick/.kube/config ] && break
-#         sleep 1
-#       done
-#       chown nick:users /home/nick/.kube/config
-#     ''}"
-#   ];
+  # Kubernetes
+  services.k3s = {
+    enable = true;
+    role = "agent";
+    serverAddr = "https://192.168.68.15:6443";
+    tokenFile = "/home/nick/DEV/Nicklab/secrets/k3s-node-token";
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
