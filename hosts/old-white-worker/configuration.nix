@@ -17,15 +17,15 @@
 
   # NETWORK
   networking.hostName = "old-white-worker";
-  networking.interfaces.eno1.ipv4.addresses = [{
+  networking.interfaces.enp2s0.ipv4.addresses = [{
     address = "192.168.68.14";
     prefixLength = 24;
   }];
 
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/8bbee8f0-69c6-46db-88b5-dd87777972ce";
-    fsType = "xfs";
-  };
+#   fileSystems."/data" = {
+#     device = "/dev/disk/by-uuid/8bbee8f0-69c6-46db-88b5-dd87777972ce";
+#     fsType = "xfs";
+#   };
 
   # sudo chown -R nick:nick /data
 
