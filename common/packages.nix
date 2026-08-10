@@ -39,5 +39,6 @@
     kubectx # fast context/namespace switching
     docker-compose
     lazydocker
+    fluxcd
   ];
 }
