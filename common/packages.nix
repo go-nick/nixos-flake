@@ -42,5 +42,7 @@
     lazydocker
     fluxcd
     kustomize
+    sops
+    age
   ];
 }
