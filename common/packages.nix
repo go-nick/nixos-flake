@@ -25,6 +25,7 @@
     curl
     wget
     htop
+    btop
     tmux
 
     # golang
@@ -40,5 +41,6 @@
     docker-compose
     lazydocker
     fluxcd
+    kustomize
   ];
 }
